@@ -1,5 +1,14 @@
 const handlers = require("./handlers.js");
 
+const routes = [
+  "/main.css",
+  "/reset.css"
+  // "/dom.js",
+  // "/request.js",
+  // "/favicon.ico",
+  // "/404"
+];
+
 const router = (req, res) => {
   console.log("Malm Router");
   const url = req.url;
@@ -15,14 +24,5 @@ const router = (req, res) => {
     res.end("<h1>404 File not found</h1>");
   }
 };
-
-const routes = [
-  "/main.css",
-  "/reset.css",
-  "dom.js",
-  "/request.js",
-  "/favicon.ico",
-  "/404"
-];
 
 module.exports = router;

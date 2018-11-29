@@ -3,15 +3,15 @@ const path = require("path");
 const request = require("request");
 
 const handleHomeRoute = (req, res) => {
-  const url = req.url;
+  // const url = req.url;
   const filePath = path.join(__dirname, "..", "public", "index.html");
   fs.readFile(filePath, (err, file) => {
     if (err) {
       console.log(err);
-      res.writeHead(500, "Content-Type: text/html");
+      res.writeHead(500, { "Content-Type": "text/html" });
       res.end("<h1>500 Problem with MALM server</h1>");
     } else {
-      res.writeHead(200, "Content-Type: text/html");
+      res.writeHead(200, { "Content-Type": "text/html" });
       res.end(file);
     }
   });
@@ -19,7 +19,7 @@ const handleHomeRoute = (req, res) => {
 
 const handlePublic = (req, res, url) => {
   const filePath = path.join(__dirname, "..", "public", url);
-  const ext = url.split("."[1]);
+  const ext = url.split(".")[1];
   const extType = {
     html: "text/html",
     css: "text/css",
@@ -31,7 +31,7 @@ const handlePublic = (req, res, url) => {
     if (error) {
       console.log(error);
       res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end(file);
+      res.end(404, "<h1>heelll<h1>");
     } else {
       res.writeHead(200, { "Content-Type": `${extType[ext]}` });
       res.end(file);
