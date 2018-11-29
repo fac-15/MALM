@@ -23,5 +23,8 @@
     "request": "^2.88.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1"
+  },
+  "dependencies": {
+    "twitter": "^1.7.1"
   }
 }
