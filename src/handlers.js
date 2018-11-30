@@ -104,7 +104,6 @@ module.exports = {
 // });
 // };
 
-<<<<<<< HEAD
 // const handleApiCall =()=> {
 //
 //   request('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }, (err, res, body) => {
@@ -130,7 +129,6 @@ module.exports = {
 
 // res.writeHead(200, { 'Content-Type': 'application/json' });
 // res.end(JSON.stringify(body));
-=======
 const handlePartners = (req, response) => {
   request(
     "https://www.coops.tech/wp-json/wp/v2/co_op",
