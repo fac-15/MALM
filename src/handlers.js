@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const request = require('request');
 var Twitter = require('twitter');
-const config = require('./config');
+// const config = require('./config');
 
 const handleHomeRoute = (req, res) => {
   // const url = req.url;
@@ -122,33 +122,33 @@ const handlePartners = (req, response) => {
   );
 };
 
-const handleTweets = (username) => {
-  var client = new Twitter(config);
+// const handleTweets = (username) => {
+//   var client = new Twitter(config);
 
-  var params = { screen_name: username, count: 1 };
-  client.get('statuses/user_timeline', params, function(
-    error,
-    tweets,
-    response
-  ) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('handleTweets response ---' + tweets[0].text);
-      // console.log(tweets[1].text);
-    }
+//   var params = { screen_name: username, count: 1 };
+//   client.get('statuses/user_timeline', params, function(
+//     error,
+//     tweets,
+//     response
+//   ) {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       console.log('handleTweets response ---' + tweets[0].text);
+//       // console.log(tweets[1].text);
+//     }
 
-    // console.log(tweets.user); // The favorites.
-    // console.log(response);  // Raw response object.
-  });
-};
+//     // console.log(tweets.user); // The favorites.
+//     // console.log(response);  // Raw response object.
+//   });
+// };
 
 module.exports = {
   handleHomeRoute,
   handlePartners,
-  handlerPublic,
+  handlerPublic
   // handleApiCall,
-  handleTweets
+  // handleTweets
 };
 
 // var membersArray = []; //array to store data from obj
