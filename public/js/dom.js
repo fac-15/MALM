@@ -9,6 +9,20 @@ const clearResults = () => {
   }
 };
 
+// const listItemClick = (member) => {
+//   memberAttributes.forEach(coop => {
+//     const memberProp = document.getElementById(coop);
+//     memberProp.querySelector(`#${coop} .member-value`).textContent = " " + member[coop];
+//     if (!member[coop]) {
+//       memberProp.classList.add('hidden');
+//     } else {
+//       memberProp.classList.remove('hidden');
+//     }
+//   });
+//   input.value = '';
+//   clearResults();
+// };
+
 const createListItem = (member) => {
   const newElement = document.createElement('p');
   newElement.textContent = member.title.rendered;
