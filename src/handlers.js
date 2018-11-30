@@ -1,42 +1,40 @@
-const fs = require('fs');
-const path = require('path');
-const request = require('request');
-var Twitter = require('twitter');
+const fs = require("fs");
+const path = require("path");
+const request = require("request");
+var Twitter = require("twitter");
 // const config = require('./config');
 
 const handleHomeRoute = (req, res) => {
-  // const url = req.url;
-  const filePath = path.join(__dirname, '..', 'public', 'index.html');
+  const filePath = path.join(__dirname, "..", "public", "index.html");
   fs.readFile(filePath, (err, file) => {
     if (err) {
       console.log(err);
-      res.writeHead(500, { 'Content-Type': 'text/html' });
-      res.end('<h1>500 Problem with MALM server</h1>');
+      res.writeHead(500, { "Content-Type": "text/html" });
+      res.end("<h1>500 Problem with MALM server</h1>");
     } else {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.writeHead(200, { "Content-Type": "text/html" });
       res.end(file);
     }
   });
 };
 
 const handlerPublic = (req, res, url) => {
-  const filePath = path.join(__dirname, '..', 'public', url);
-  const ext = url.split('.')[1];
+  const filePath = path.join(__dirname, "..", "public", url);
+  const ext = url.split(".")[1];
   const extType = {
-    html: 'text/html',
-    css: 'text/css',
-    js: 'application/javascript',
-    ico: 'image/x-ico',
-    jpg: 'image/jpeg',
-    png: 'image/png'
+    html: "text/html",
+    css: "text/css",
+    js: "application/javascript",
+    ico: "image/x-ico",
+    jpg: "image/jpeg",
+    png: "image/png"
   };
 
-  // const filePath = path.join(__dirname, "..", url);
   fs.readFile(filePath, (error, file) => {
     if (error) {
       console.log(error);
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end(404, '<h1>error, file not found<h1>');
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end(404, "<h1>error, file not found<h1>");
     } else {
       res.writeHead(200, `Content-Type : ${extType[ext]}`);
       res.end(file);
@@ -106,6 +104,7 @@ module.exports = {
 // });
 // };
 
+<<<<<<< HEAD
 // const handleApiCall =()=> {
 //
 //   request('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }, (err, res, body) => {
@@ -131,6 +130,43 @@ module.exports = {
 
 // res.writeHead(200, { 'Content-Type': 'application/json' });
 // res.end(JSON.stringify(body));
+=======
+const handlePartners = (req, response) => {
+  request(
+    "https://www.coops.tech/wp-json/wp/v2/co_op",
+    { json: true },
+    (err, res, body) => {
+      if (err) {
+        return console.log(err);
+      } else {
+        const inputValue = req.url.split("=")[1];
+        // console.log('input value: \n', inputValue);
+        const filteredMembers = body.filter(member => {
+          const memberName = member.title.rendered;
+          if (
+            memberName.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1
+          ) {
+            return memberName;
+          }
+        });
+        // var twitterLink = body[1].acf.social_media[2].social_media_link;
+        // console.log(twitterLink); //twitter link
+        // // console.log(membersArray);
+        // var twitterNickname = twitterLink.split('.com/')[1];
+
+        // handleTweets(twitterNickname);
+        // var username = "zurdev";
+        // handleTweets(username);
+        // console.log(body);
+
+        // res.writeHead(200, { 'Content-Type': 'application/json' });
+        // res.end(JSON.stringify(body));
+        response.end(JSON.stringify(filteredMembers));
+      }
+    }
+  );
+};
+>>>>>>> master
 
 // const handleTweets = (username) => {
 //   var client = new Twitter(config);
