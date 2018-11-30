@@ -2,10 +2,11 @@ const handlers = require("./handlers.js");
 
 const routes = [
   "/main.css",
-  "/reset.css"
-  // "/dom.js",
-  // "/request.js",
-  // "/favicon.ico",
+  "/reset.css",
+  "/media/CoTech-logo.png",
+  "/dom.js",
+  "/js/request.js",
+  "/favicon.ico"
   // "/404"
 ];
 
@@ -14,11 +15,10 @@ const router = (req, res) => {
   const url = req.url;
   if (url === "/") {
     handlers.handleHomeRoute(req, res);
-    handlers.handleApiCall(); //TEST API
   } else if (routes.includes(url)) {
-    handlers.handlePublic(req, res, url);
-  } else if (url.indexOf("/search") !== -1) {
-    handlers.handleRequest(req, res);
+    handlers.handlerPublic(req, res, url);
+  } else if (url.indexOf("/data") !== -1) {
+    handlers.handlePartners(req, res);
   } else {
     res.writeHead(404, "Content-Type: text/html");
     res.end("<h1>404 File not found</h1>");
