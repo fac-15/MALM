@@ -7,11 +7,20 @@ body {
   padding: 10%;
 }
 
+body * {
+  font-family: "Roboto", sans-serif;
+}
+
 h1 {
-  font-family: "Bowlby One SC", cursive;
+  font-weight: 700;
   font-size: 3rem;
   text-align: center;
   padding: 1rem;
+  display: inline-block;
+}
+
+#title {
+  text-align: center;
 }
 
 .container {
@@ -36,27 +45,28 @@ h1 {
   border-radius: 5px;
   border: none;
   opacity: 0.8;
-  color: #8f7006;
+  color: #548a9c;
 }
 
 #coop_submit:hover {
-  color: #382c01;
+  color: #395e6a;
   background-color: black 1px;
 }
 
+#logo {
+  display: inline-block;
+}
+
 input[type="text"] {
-  font-family: "Armata", sans-serif;
   font-size: 1rem;
+}
+
+input[type="button"] {
+  font-family: FontAwesome;
 }
 
 @media only screen and (max-width: 500px) {
   h1 {
-    font-size: 2rem;
-  }
-  #cheerio {
-    font-size: 3rem;
-  }
-  #time {
     font-size: 2rem;
   }
 }
