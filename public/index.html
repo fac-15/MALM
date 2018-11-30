@@ -13,12 +13,13 @@
 
     <img src='/media/CoTech-logo.png' type='image/png'>
     <h1>CoTech</h1>
-    <form class='form-container'>
-    <input list="coop_datalist" id="coop_input" type="text" name="" value="" placeholder="Search for a company">
-      <button id="coop_submit" type="button" name="submit"><span class="fas fa-users"></span></button>
-    </form>
-<script type="text/javascript" src="js/request.js"></script>
-    <!-- <script type="text/javascript" src="/js/dom.js"></script> -->
+    <div class='container'>
+    <input id="coop_input" type="text" name="" value="" placeholder="Search for a company">
+      <input id="coop_submit" type="button" name="submit"><span class="fas fa-users"></span></input>
+      <div id="autocomplete-list"></div>
+    </div>
+<script type="application/javascript" src="js/request.js"></script>
+    <script type="application/javascript" src="/js/dom.js"></script>
 
   </body>
 </html>
