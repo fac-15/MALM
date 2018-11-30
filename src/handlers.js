@@ -71,8 +71,6 @@ const handlerPublic = (req, res, url) => {
 // };
 
 const handlePartners = (req, response) => {
-  console.log("handle partners: \n");
-
   request(
     "https://www.coops.tech/wp-json/wp/v2/co_op",
     { json: true },
