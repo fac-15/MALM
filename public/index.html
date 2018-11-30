@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href='reset.css' rel='stylesheet' type='text/css'     >  </link>
+    <link href='reset.css' rel='stylesheet' type='text/css'>  </link>
     <link href='main.css' rel='stylesheet' type='text/css'></link>
-    <title>CO-TECH</title>
+    <title>CoTech</title>
   </head>
   <body>
 
-    <img src='/media/CoTech-logo.png' type='image/png'>
+    <div id="title">
+    <img id="logo" src='/media/CoTech-logo.png' type='image/png'>
     <h1>CoTech</h1>
+    <div>
     <div class='container'>
-    <input id="coop_input" type="text" name="" value="" placeholder="Search for a company">
-      <input id="coop_submit" type="button" name="submit"><span class="fas fa-users"></span></input>
+      <input id="coop_input" type="text" name="" value="" placeholder="Search for a company">
+      <button id="coop_submit" type="button" name="submit"><span class="fas fa-users"></span></button>
       <div id="autocomplete-list"></div>
     </div>
     <script type="application/javascript" src="js/request.js"></script>
