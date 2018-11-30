@@ -5,23 +5,22 @@ var Twitter = require("twitter");
 const config = require("./config");
 
 const handleHomeRoute = (req, res) => {
-  const url = req.url;
+  // const url = req.url;
   const filePath = path.join(__dirname, "..", "public", "index.html");
   fs.readFile(filePath, (err, file) => {
     if (err) {
       console.log(err);
-      res.writeHead(500, "Content-Type: text/html");
+      res.writeHead(500, { "Content-Type": "text/html" });
       res.end("<h1>500 Problem with MALM server</h1>");
     } else {
-      res.writeHead(200, "Content-Type: text/html");
+      res.writeHead(200, { "Content-Type": "text/html" });
       res.end(file);
     }
   });
 };
 
 const handlerPublic = (req, res, url) => {
-  console.log("im inside pulic handler");
-  console.log(url);
+  const filePath = path.join(__dirname, "..", "public", url);
   const ext = url.split(".")[1];
   const extType = {
     html: "text/html",
@@ -32,13 +31,13 @@ const handlerPublic = (req, res, url) => {
     png: "image/png"
   };
 
-  const filePath = path.join(__dirname, "..", url);
+  // const filePath = path.join(__dirname, "..", url);
 
-  fs.readFile(filePath, (err, file) => {
-    if (err) {
-      console.log(err);
-      res.writeHead(500, { "Content-Type": "text/html" });
-      res.end("<h1>We've hit an error 500</h1>");
+  fs.readFile(filePath, (error, file) => {
+    if (error) {
+      console.log(error);
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end(404, "<h1>error, file not found<h1>");
     } else {
       res.writeHead(200, `Content-Type : ${extType[ext]}`);
       res.end(file);

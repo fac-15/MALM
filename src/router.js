@@ -1,18 +1,24 @@
 const handlers = require("./handlers.js");
 
+const routes = [
+  "/main.css",
+  "/reset.css",
+  "/media/CoTech-logo.png",
+  "/dom.js",
+  "/js/request.js",
+  "/favicon.ico"
+  // "/404"
+];
+
 const router = (req, res) => {
   console.log("Malm Router");
   const url = req.url;
   if (url === "/") {
     handlers.handleHomeRoute(req, res);
-  } else if (url.indexOf("public") !== -1) {
+  } else if (routes.includes(url)) {
     handlers.handlerPublic(req, res, url);
-  } else if (url === "/data") {
+  } else if (url.indexOf("/data") !== -1) {
     handlers.handlePartners(req, res);
-
-    // // handlers.handleApiCall(); //TEST API
-    // var username = "zurdev";
-    // handlers.handleTweets();
   } else {
     res.writeHead(404, "Content-Type: text/html");
     res.end("<h1>404 File not found</h1>");

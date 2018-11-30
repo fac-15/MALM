@@ -1,0 +1,63 @@
+body {
+  height: 100vh;
+  /* background-image: url("./image/background.jpg"); */
+  background-position: center;
+  background-size: cover;
+  max-width: 100vw;
+  margin: auto;
+  padding: 10%;
+}
+
+h1 {
+  font-family: "Bowlby One SC", cursive;
+  font-size: 3rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.form-container {
+  text-align: center;
+  align-items: center;
+}
+
+#time {
+  font-size: 4rem;
+}
+
+#coop_input {
+  padding: 20px;
+  width: 40vw;
+  border-radius: 20px;
+}
+
+#coop_submit {
+  height: 3rem;
+  width: 3rem;
+  font-size: 2rem;
+  border-radius: 5px;
+  border: none;
+  opacity: 0.8;
+  color: #8f7006;
+}
+
+#coop_submit:hover {
+  color: #382c01;
+  background-color: black 1px;
+}
+
+input[type="text"] {
+  font-family: "Armata", sans-serif;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+  #cheerio {
+    font-size: 3rem;
+  }
+  #time {
+    font-size: 2rem;
+  }
+}
