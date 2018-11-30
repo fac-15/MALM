@@ -42,6 +42,40 @@ const handlerPublic = (req, res, url) => {
   });
 };
 
+const handlePartners = (req, response) => {
+  console.log('handle partners: \n');
+  request(
+    'https://www.coops.tech/wp-json/wp/v2/co_op',
+    { json: true },
+    (err, res, body) => {
+      if (err) {
+        return console.log(err);
+      } else {
+        const inputValue = req.url.split('=')[1];
+        // console.log('input value: \n', inputValue);
+        const filteredMembers = body.filter((member) => {
+          const memberName = member.title.rendered;
+          if (
+            memberName.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1
+          ) {
+            return memberName;
+          }
+        });
+        response.end(JSON.stringify(filteredMembers));
+      }
+    }
+  );
+};
+
+module.exports = {
+  handleHomeRoute,
+  handlePartners,
+  handlerPublic
+  // handleApiCall,
+  // handleTweets
+};
+
+// -------------------------------- API ---------------------------------------
 // const handleApiCall = (req, res) => {
 //
 //   request('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }, (err, res, body) => {
@@ -70,6 +104,33 @@ const handlerPublic = (req, res, url) => {
 // });
 // };
 
+<<<<<<< HEAD
+// const handleApiCall =()=> {
+//
+//   request('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', { json: true }, (err, res, body) => {
+//     if (err) { return console.log(err); }
+//     console.log(body.url);
+//     console.log(body.explanation);
+//     var html = fs.readFileSync('public/index.html', 'utf8');
+//     html = html.replace('{Message}', body.explanation);
+//
+//   });
+// }
+
+// -------------------------------- TWITTER ---------------------------------------
+// var twitterLink = body[1].acf.social_media[2].social_media_link;
+// console.log(twitterLink); //twitter link
+// // console.log(membersArray);
+// var twitterNickname = twitterLink.split('.com/')[1];
+
+// handleTweets(twitterNickname);
+// var username = "zurdev";
+// handleTweets(username);
+// console.log(body);
+
+// res.writeHead(200, { 'Content-Type': 'application/json' });
+// res.end(JSON.stringify(body));
+=======
 const handlePartners = (req, response) => {
   request(
     "https://www.coops.tech/wp-json/wp/v2/co_op",
@@ -105,6 +166,7 @@ const handlePartners = (req, response) => {
     }
   );
 };
+>>>>>>> master
 
 // const handleTweets = (username) => {
 //   var client = new Twitter(config);
@@ -126,14 +188,6 @@ const handlePartners = (req, response) => {
 //     // console.log(response);  // Raw response object.
 //   });
 // };
-
-module.exports = {
-  handleHomeRoute,
-  handlePartners,
-  handlerPublic
-  // handleApiCall,
-  // handleTweets
-};
 
 // var membersArray = []; //array to store data from obj
 // body.forEach(function(item) {
