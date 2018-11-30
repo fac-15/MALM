@@ -43,7 +43,6 @@ const handlerPublic = (req, res, url) => {
 };
 
 const handlePartners = (req, response) => {
-  console.log('handle partners: \n');
   request(
     'https://www.coops.tech/wp-json/wp/v2/co_op',
     { json: true },
@@ -129,42 +128,42 @@ module.exports = {
 
 // res.writeHead(200, { 'Content-Type': 'application/json' });
 // res.end(JSON.stringify(body));
-const handlePartners = (req, response) => {
-  request(
-    "https://www.coops.tech/wp-json/wp/v2/co_op",
-    { json: true },
-    (err, res, body) => {
-      if (err) {
-        return console.log(err);
-      } else {
-        const inputValue = req.url.split("=")[1];
-        // console.log('input value: \n', inputValue);
-        const filteredMembers = body.filter(member => {
-          const memberName = member.title.rendered;
-          if (
-            memberName.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1
-          ) {
-            return memberName;
-          }
-        });
-        // var twitterLink = body[1].acf.social_media[2].social_media_link;
-        // console.log(twitterLink); //twitter link
-        // // console.log(membersArray);
-        // var twitterNickname = twitterLink.split('.com/')[1];
+// const handlePartners = (req, response) => {
+//   request(
+//     "https://www.coops.tech/wp-json/wp/v2/co_op",
+//     { json: true },
+//     (err, res, body) => {
+//       if (err) {
+//         return console.log(err);
+//       } else {
+//         const inputValue = req.url.split("=")[1];
+//         // console.log('input value: \n', inputValue);
+//         const filteredMembers = body.filter(member => {
+//           const memberName = member.title.rendered;
+//           if (
+//             memberName.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1
+//           ) {
+//             return memberName;
+//           }
+//         });
+//         // var twitterLink = body[1].acf.social_media[2].social_media_link;
+//         // console.log(twitterLink); //twitter link
+//         // // console.log(membersArray);
+//         // var twitterNickname = twitterLink.split('.com/')[1];
 
-        // handleTweets(twitterNickname);
-        // var username = "zurdev";
-        // handleTweets(username);
-        // console.log(body);
+//         // handleTweets(twitterNickname);
+//         // var username = "zurdev";
+//         // handleTweets(username);
+//         // console.log(body);
 
-        // res.writeHead(200, { 'Content-Type': 'application/json' });
-        // res.end(JSON.stringify(body));
-        response.end(JSON.stringify(filteredMembers));
-      }
-    }
-  );
-};
->>>>>>> master
+//         // res.writeHead(200, { 'Content-Type': 'application/json' });
+//         // res.end(JSON.stringify(body));
+//         response.end(JSON.stringify(filteredMembers));
+//       }
+//     }
+//   );
+// };
+// >>>>>>> master
 
 // const handleTweets = (username) => {
 //   var client = new Twitter(config);
