@@ -8,7 +8,7 @@ body {
 }
 
 body * {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -48,6 +48,10 @@ h1 {
   color: #548a9c;
 }
 
+#results {
+  padding-top: 5em;
+}
+
 #coop_submit:hover {
   color: #395e6a;
   background-color: black 1px;
@@ -57,11 +61,11 @@ h1 {
   display: inline-block;
 }
 
-input[type="text"] {
+input[type='text'] {
   font-size: 1rem;
 }
 
-input[type="button"] {
+input[type='button'] {
   font-family: FontAwesome;
 }
 

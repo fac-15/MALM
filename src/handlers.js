@@ -1,40 +1,40 @@
-const fs = require("fs");
-const path = require("path");
-const request = require("request");
-var Twitter = require("twitter");
+const fs = require('fs');
+const path = require('path');
+const request = require('request');
+var Twitter = require('twitter');
 // const config = require('./config');
 
 const handleHomeRoute = (req, res) => {
-  const filePath = path.join(__dirname, "..", "public", "index.html");
+  const filePath = path.join(__dirname, '..', 'public', 'index.html');
   fs.readFile(filePath, (err, file) => {
     if (err) {
       console.log(err);
-      res.writeHead(500, { "Content-Type": "text/html" });
-      res.end("<h1>500 Problem with MALM server</h1>");
+      res.writeHead(500, { 'Content-Type': 'text/html' });
+      res.end('<h1>500 Problem with MALM server</h1>');
     } else {
-      res.writeHead(200, { "Content-Type": "text/html" });
+      res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(file);
     }
   });
 };
 
 const handlerPublic = (req, res, url) => {
-  const filePath = path.join(__dirname, "..", "public", url);
-  const ext = url.split(".")[1];
+  const filePath = path.join(__dirname, '..', 'public', url);
+  const ext = url.split('.')[1];
   const extType = {
-    html: "text/html",
-    css: "text/css",
-    js: "application/javascript",
-    ico: "image/x-ico",
-    jpg: "image/jpeg",
-    png: "image/png"
+    html: 'text/html',
+    css: 'text/css',
+    js: 'application/javascript',
+    ico: 'image/x-ico',
+    jpg: 'image/jpeg',
+    png: 'image/png'
   };
 
   fs.readFile(filePath, (error, file) => {
     if (error) {
       console.log(error);
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end(404, "<h1>error, file not found<h1>");
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end(404, '<h1>error, file not found<h1>');
     } else {
       res.writeHead(200, `Content-Type : ${extType[ext]}`);
       res.end(file);
@@ -163,7 +163,6 @@ module.exports = {
 //     }
 //   );
 // };
-// >>>>>>> master
 
 // const handleTweets = (username) => {
 //   var client = new Twitter(config);
